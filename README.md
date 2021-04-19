@@ -1,7 +1,51 @@
-# Getting Started With Node, Express and Postgres (using Sequelize)
+# Subscript Todo Exercise
 
-This repo houses code for the blog ["Getting Started with Node, Express and Postgres (using Sequelize)"](https://scotch.io/tutorials/getting-started-with-node-express-and-postgres-using-sequelize)
+# Models
 
-Code for various sections is separated into branches, so if you're working through the tutorial and you get stuck, you can always checkout the corresponding branch and refer.
+1. Users
+    - firstName
+    - lastName
+    - email
+    - password
 
-Have fun! 😄
+2. Organizations
+    - name
+
+3. Projects
+    - name
+    - Belongs to an Organization
+
+4. Teams
+    - name
+    - Belongs to an Organization
+
+5. Todo
+    - title
+    - description
+    - Belongs to a Project
+    - Belongs to Creator (User)
+
+6. Todo Items
+    - title
+    - Belongs to a Todo
+
+7. User Organizations
+    - User Id
+    - Organization Id
+    - memberSince
+
+8. Project Members
+    - Project Id
+    - Member Type ('team', 'user')
+    - Member Id (User Id/Team Id)
+
+9. Todo Assignees
+    - Todo Id
+    - User Id
+    - Assigned On
+    - Assigned By
+
+10. Team Users
+    - Team Id
+    - User Id
+    - Member Since
