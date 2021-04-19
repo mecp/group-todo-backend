@@ -1,7 +1,7 @@
-const todos = require('./todos');
-const todoItems = require('./todoitems');
+const makeTodosRoutes = require('./todos');
+const makeTodoItemsRoutes = require('./todoitems');
 
 module.exports = {
-  todos,
-  todoItems,
+  makeTodosRoutes,
+  makeTodoItemsRoutes,
 };
