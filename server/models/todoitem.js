@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const TodoItem = sequelize.define('TodoItem', {
-    content: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },

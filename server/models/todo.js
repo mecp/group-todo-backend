@@ -4,19 +4,21 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    projectId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+    description: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
-    createdBy: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+    complete: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    }
   });
   Todo.associate = (models) => {
-    Todo.belongsTo(models.Project);
+    Todo.belongsTo(models.Project, {
+      foreignKey: 'projectId'
+    });
     Todo.belongsTo(models.User, {
-      as: 'createdBy'
+      foreignKey: 'createdBy'
     });
     Todo.hasMany(models.TodoItem, {
       foreignKey: 'todoId',
