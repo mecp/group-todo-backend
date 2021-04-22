@@ -46,6 +46,15 @@ const TodoService = {
         projectId: userProjects.map(({ projectId }) => projectId)
       }
     });
+  },
+  addTodoItem: async (todoId, payload) => {
+    // check if the todo exists
+    const todo = await TodoService.getById(todoId);
+
+    return TodoItem.create({
+      ...payload,
+      todoId
+    });
   }
 };
 

@@ -13,7 +13,8 @@ const controllers = {
   list: (req, res) => dispatchResponse(TodoService.getAllForUser(1), res, 200, 400),
   retrieve: (req, res) => dispatchResponse(TodoService.getById(req.params.todoId), res, 200, 400),
   update: (req, res) => dispatchResponse(TodoService.update(req.params.todoId, req.body), res, 200, 400),
-  destroy: (req, res) => dispatchResponse(TodoService.delete(req.params.todoId), res, 204, 400)
+  destroy: (req, res) => dispatchResponse(TodoService.delete(req.params.todoId), res, 204, 400),
+  addTodoItem: (req, res) => dispatchResponse(TodoService.addTodoItem(req.params.todoId, req.body), res, 201, 400)
 };
 
 const makeRoutes = () => {
@@ -24,6 +25,9 @@ const makeRoutes = () => {
   router.get('/:todoId', controllers.retrieve);
   router.put('/:todoId', controllers.update);
   router.delete('/:todoId', controllers.destroy);
+
+  // todo item route
+  router.post('/:todoId/todoitems', controllers.addTodoItem);
 
   return router;
 };
